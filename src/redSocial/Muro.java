@@ -1,0 +1,26 @@
+package redSocial;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Muro {
+	
+	private List<Mensaje> mensajes;
+	
+	public Muro(){
+		this.mensajes = new ArrayList<Mensaje>();
+	}
+	
+	public void agregarMensaje(Mensaje mensaje){
+		this.mensajes.add(mensaje);
+	}
+	
+	public Mensaje ultimoMensaje(){
+		return this.mensajes.get(0);
+	}
+	
+	public boolean isEmpty(){
+		return true;
+	}
+	
+}
