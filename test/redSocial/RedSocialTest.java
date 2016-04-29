@@ -42,6 +42,27 @@ public class RedSocialTest {
 		assertTrue("Hola :D".equals(arielito.getMuro().ultimoMensaje().getContenido()));
 	}
 	
+	@Test
+	public void testUnUsuarioPuedeBorrarUnMensajeDeSuPropioMuro(){
+		carla.publicarMensaje(carla, "test en mi muro");
+		carla.eliminarMensaje(carla.getMuro().ultimoMensaje());
+		assertTrue(carla.getMuro().cantidadMensajes()==0);
+	}
 	
-
+	@Test
+	public void testUnUsuarioPuedeTenerNotificaciones(){
+		Usuario ari = new Usuario("Ari");
+		Notificacion nueva = new Notificacion(ari, "holis sarasita larala");
+		carla.recibirNotificacion(nueva);
+		assertEquals(nueva, carla.ultimaNotificacion());
+	}
+	
+	@Test
+	public void testUnUsuarioPublicaAlgoEnSuMuroYSusAmigosDebenSerNotificados(){
+		Usuario ari = new Usuario("Ari");
+		carla.agregarAmigo(ari);
+		carla.publicarMensaje(carla, "test en mi muro");
+		Notificacion nuevaNotificacion = new Notificacion(carla, "test en mi muro");
+		assertEquals(nuevaNotificacion, ari.ultimaNotificacion());
+	}
 }

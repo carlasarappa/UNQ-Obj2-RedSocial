@@ -19,8 +19,16 @@ public class Muro {
 		return this.mensajes.get(0);
 	}
 	
+	public void borrarMensaje(Mensaje mensaje){
+		this.mensajes.remove(mensaje);
+	}
+	
 	public boolean isEmpty(){
 		return true;
+	}
+	
+	public int cantidadMensajes(){
+		return this.mensajes.size();
 	}
 	
 }
