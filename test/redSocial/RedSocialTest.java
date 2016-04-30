@@ -26,7 +26,7 @@ public class RedSocialTest {
 	
 	@Test
 	public void testUnUsuarioNuevoNoTieneAmigos(){
-		assertTrue(carla.cantidadAmigos()==0);
+		assertTrue(carla.cantidadAmigos().equals(0));
 	}
 	
 	@Test
@@ -42,6 +42,10 @@ public class RedSocialTest {
 		assertTrue("Hola :D".equals(arielito.getMuro().ultimoMensaje().getContenido()));
 	}
 	
+	@Test
+	public void testUnUsuarioDeseaVerLaCantidadDeAmigos(){
+		assertEquals(carla.cantidadAmigos(),0);
+	}
 	
-
+	
 }
